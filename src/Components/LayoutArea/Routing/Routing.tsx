@@ -7,6 +7,8 @@ import { Page404 } from "../Page404/Page404";
 import { Suspense, lazy } from "react";
 import { Spinner } from "../../SharedArea/Spinner/Spinner";
 import { ProductDetails } from "../../ProductArea/ProductDetails/ProductDetails";
+import { AddProduct } from "../../ProductArea/AddProduct/AddProduct";
+import { EditProduct } from "../../ProductArea/EditProduct/EditProduct";
 
 export function Routing(): JSX.Element {
 
@@ -21,6 +23,8 @@ export function Routing(): JSX.Element {
                 <Route path="/home" element={<HomeE />} />
                 <Route path="/products" element={<Products />} />
                 <Route path="products/details/:id" element={<ProductDetails />}/>
+                <Route path="/products/new" element={<AddProduct />}/>
+                <Route path="products/edit/:id" element={<EditProduct/>}/>
                 <Route path="/about" element={SuspenseAbout} />
                 <Route path="/" element={<Navigate to= "/home" />}/>
                 <Route path="*" element={<Page404 />} />

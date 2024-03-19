@@ -1,3 +1,5 @@
-.ProductDetails {
+.ProductDetails > img {
+    width: 400px;
 	
 }
+
