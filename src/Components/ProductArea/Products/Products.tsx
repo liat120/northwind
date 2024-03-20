@@ -4,7 +4,7 @@ import { productService } from "../../../Services/ProductService";
 import { ProductModel } from "../../../Models/ProductModel";
 import { ProductCard } from "../ProductCard/ProductCard";
 import { notify } from "../../../Utils/notify";
-import { error } from "console";
+import { Spinner } from "../../SharedArea/Spinner/Spinner";
 
 export function Products(): JSX.Element {
 
@@ -18,9 +18,8 @@ export function Products(): JSX.Element {
     
 
     return (
-
-       
         <div className="Products">
+            {products.length === 0 && <Spinner /> }
 			{products.map(p => <ProductCard key={p.id} product={p}/>)}
 
         </div>

@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { ProductModel } from "../../../Models/ProductModel";
 import { notify } from "../../../Utils/notify";
+import { Spinner } from "../../SharedArea/Spinner/Spinner";
 
 
 export function ProductDetails(): JSX.Element {
@@ -37,6 +38,7 @@ export function ProductDetails(): JSX.Element {
         }
     }
 
+    if(!product) return <Spinner/>
     return (
         <div className="ProductDetails">
             details..
@@ -52,7 +54,7 @@ export function ProductDetails(): JSX.Element {
 
             <span> </span>
 
-            <NavLink to={"/products/edit/" + product?.id}> Edit | </NavLink>
+            <NavLink to={"/products/edit/" + product.id}> Edit | </NavLink>
 
             <span> </span>
 

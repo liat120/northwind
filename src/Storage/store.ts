@@ -16,7 +16,8 @@ const slice = createSlice({
 
 export const actions = slice.actions;
 
-export const store = configureStore({
-    reducer: { products:slice.reducer}
+export const store = configureStore<AppState>({
+    reducer: { 
+        products:slice.reducer}
 });
 
