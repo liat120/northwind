@@ -1,32 +1,26 @@
-<<<<<<< Updated upstream
-import { useParams } from "react-router-dom";
-import "./ProductDetails.css";
-=======
 import { useNavigate, useParams } from "react-router-dom";
+import "./ProductDetails.css";
 import { productService } from "../../../Services/ProductService";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { ProductModel } from "../../../Models/ProductModel";
 import { notify } from "../../../Utils/notify";
 
->>>>>>> Stashed changes
 
 export function ProductDetails(): JSX.Element {
 
+    const [product, setProduct] = useState<ProductModel>()
     const params = useParams();
     const id = +params.id;
-<<<<<<< Updated upstream
-    console.log(id);
-=======
-    const [product, setProduct] = useState<ProductModel>();
     const navigate = useNavigate();
 
     useEffect(() => {
         productService.getOneProduct(id)
         .then(dbProduct => setProduct(dbProduct))
-        .catch(err=>{notify.error(err)});
+        .catch(err => notify.error(err));
+
     }, []);
->>>>>>> Stashed changes
+    
 
     async function deleteMe() {
         try {
@@ -45,10 +39,8 @@ export function ProductDetails(): JSX.Element {
 
     return (
         <div className="ProductDetails">
-<<<<<<< Updated upstream
             details..
 			
-=======
             <h3>Name: {product?.name}</h3>
             <h3>Price: {product?.price}</h3>
             <h3>Stock: {product?.stock}</h3>
@@ -67,7 +59,7 @@ export function ProductDetails(): JSX.Element {
             <NavLink to="#" onClick={deleteMe}> Delete </NavLink>
 
 
->>>>>>> Stashed changes
         </div>
-    );
-}
+     )   
+
+}   
